@@ -13,4 +13,9 @@ public class HammingDist implements IHeuristic{
         }
         return dist;
     }
+
+    @Override
+    public String getHeuristicName() {
+        return "HAMMING";
+    }
 }

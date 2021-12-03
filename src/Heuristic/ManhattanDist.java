@@ -14,10 +14,15 @@ public class ManhattanDist implements IHeuristic{
                     col_dest = board[i][j]-(row_dest*k)-1;
 
                     dist+=Math.abs(col_dest-j)+Math.abs(row_dest-i);
-                    System.out.println(Integer.toString(dist));
+//                    System.out.println(Integer.toString(dist));
                 }
             }
         }
         return dist;
+    }
+
+    @Override
+    public String getHeuristicName() {
+        return "MANHATTAN";
     }
 }
