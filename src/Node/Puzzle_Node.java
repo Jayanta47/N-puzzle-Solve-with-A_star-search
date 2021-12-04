@@ -19,11 +19,6 @@ public class Puzzle_Node {
         this.h_n = 0;
     }
 
-    public Puzzle_Node(int k) {
-        this.board_state = new int[k][k];
-        this.parent = null;
-        this.g_n = 0;
-    }
 
     public int [][] getBoard_stateCopy() {
         int[][] temp = new int[k][k];
@@ -47,7 +42,7 @@ public class Puzzle_Node {
 
         for(int i=0;i<k;i++) {
             for(int j=0;j<k;j++) {
-                node_view.append("| "+Integer.toString(board_state[i][j])+" ");
+                node_view.append("| "+ (board_state[i][j]==0?"*":board_state[i][j]) +" ");
             }
             node_view.append("|\n");
         }

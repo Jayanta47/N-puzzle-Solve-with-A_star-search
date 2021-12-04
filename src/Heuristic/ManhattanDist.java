@@ -10,8 +10,8 @@ public class ManhattanDist implements IHeuristic{
         for (int i =0; i<k; i++) {
             for (int j = 0; j < k; j++) {
                 if (board[i][j] != 0) {
-                    row_dest = board[i][j]/k;
-                    col_dest = board[i][j]-(row_dest*k)-1;
+                    row_dest = (board[i][j]-1)/k;
+                    col_dest = (board[i][j]-1)-(row_dest*k);
 
                     dist+=Math.abs(col_dest-j)+Math.abs(row_dest-i);
 //                    System.out.println(Integer.toString(dist));

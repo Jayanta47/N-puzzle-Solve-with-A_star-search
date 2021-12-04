@@ -12,14 +12,13 @@ public class Solvability_Test {
             }
         }
 
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
         for(int i=0;i<k*k-1;i++) {
             for(int j=i+1;j<k*k;j++) {
-//                System.out.printf("%d %d -- ", i, j);
                 if (arr[i]!=0 && arr[j]!=0 && arr[i]>arr[j])n_inversion++;
             }
         }
-        System.out.println("Inversions Encountered: " + Integer.toString(n_inversion));
+//        System.out.println("Inversions Encountered: " + n_inversion);
 
         if (k%2==1) {
             if (n_inversion%2==0) return true;
@@ -32,7 +31,7 @@ public class Solvability_Test {
                 }
             }
 
-            return (row % 2 == 0 && n_inversion % 2 == 1) || (row % 2 == 1 && n_inversion % 2 == 0);
+            return (row % 2 == 1 && n_inversion % 2 == 1) || (row % 2 == 0 && n_inversion % 2 == 0);
         }
 
         return false;
