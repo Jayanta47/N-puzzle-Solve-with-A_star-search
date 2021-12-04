@@ -112,9 +112,9 @@ public class Utility implements IUtil {
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < k; j++) {
                 if (temp[i][j] != 0) {
-                    if (temp[i][j] != i * k + j + 1) return false;
+                    if (temp[i][j] != (i * k + j + 1)) return false;
                 } else {
-                    if (i * k + j != 8) return false;
+                    if ((i * k + j) != (k*k-1)) return false;
                 }
             }
         }

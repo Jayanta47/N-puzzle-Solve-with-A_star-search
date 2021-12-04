@@ -87,12 +87,14 @@ public class A_star_Search {
         Puzzle_Node lastNode = null;
         pQ.add(rootNode);
         exploredNodes.add(rootNode.rollingHash());
+//        int i=0;
         while (!pQ.isEmpty()) {
             Puzzle_Node pn = pQ.poll();
 //            System.out.println("picked");
 //            System.out.println(pn);
+//            System.out.println("-->fn: " + pn.get_F_n());
             this.expandedNode++;
-            
+//            System.out.println(pn);
             if (this.utilityFunc.isGoalBoard(pn)) {
                 lastNode = pn;
                 break;
@@ -105,10 +107,15 @@ public class A_star_Search {
 //                System.out.println("Child");
 //                System.out.println(spn);
 //                System.out.println("-->"+spn.get_F_n());
+//                break;
+
                 if (!closeList.contains(spn.rollingHash())) {
+//                    System.out.println("pushed->");
+//                    System.out.println(spn);
                     pQ.add(spn);
                     exploredNodes.add(spn.rollingHash());
                 }
+
             }
         }
 
@@ -165,6 +172,12 @@ class QComp implements Comparator<Puzzle_Node> {
 
     @Override
     public int compare(Puzzle_Node pn1, Puzzle_Node pn2) {
-        return pn1.get_F_n() - pn2.get_F_n();
+        if (pn1.get_F_n() > pn2.get_F_n()) {
+            return 1;
+        }
+        else if (pn1.get_F_n()<pn2.get_F_n()) {
+            return -1;
+        }
+        return 0;
     }
 }

@@ -109,7 +109,7 @@ public class Puzzle_Node {
         long p_pow = 1;
         for (int i=0;i<this.k;i++) {
             for(int j=0;j<this.k;j++) {
-                hashValue = (hashValue+ ((this.board_state[i][j]==0)?10:this.board_state[i][j])*p_pow)%m;
+                hashValue = (hashValue+ ((this.board_state[i][j]==0)?(k*k):this.board_state[i][j])*p_pow)%m;
                 p_pow = (p_pow*p)%m;
             }
         }

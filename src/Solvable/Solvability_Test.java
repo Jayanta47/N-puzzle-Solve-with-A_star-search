@@ -24,14 +24,19 @@ public class Solvability_Test {
             if (n_inversion%2==0) return true;
         }
         else if (k%2==0) {
-            int row;
-            for(row=0;row<k;row++) {
+            int row=0;
+            for(int i=0;i<k;i++) {
                 for(int j=0;j<k;j++) {
-                    if (board[row][j]==0) break;
+                    if (board[i][j]==0) {
+                        row=i;
+//                        System.out.println("got ");
+                        break;
+                    }
                 }
             }
-
-            return (row % 2 == 1 && n_inversion % 2 == 1) || (row % 2 == 0 && n_inversion % 2 == 0);
+            System.out.println(n_inversion);
+//            System.out.println(row+" "+k);
+            return (row % 2 == k%2 && n_inversion % 2 == 1) || (row % 2 != k%2 && n_inversion % 2 == 0);
         }
 
         return false;

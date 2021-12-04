@@ -57,7 +57,7 @@ public class main {
         A_star_Search as = new A_star_Search("HAMMING");
 
 
-        File file = new File("./test4/");
+        File file = new File("./tests3/");
         File[] filesList = file.listFiles();
 
         Puzzle_Node pn;
@@ -67,13 +67,13 @@ public class main {
         String fileName;
         for (File testFile :
                 filesList) {
-            fileName = "./test4/" + testFile.getName();
+            fileName = "./tests3/" + testFile.getName();
             System.out.println("Current File: " + fileName);
             pn = new Puzzle_Node(readBoard(fileName), k, null, 0);
             if (Solvability_Test.isSolvable(pn.getBoard_stateCopy(), k)) {
                 System.out.println("Status: Solvable");
                 s++;
-                String outputFileName = "./output4/out_" + testFile.getName();
+                String outputFileName = "./output3/out_" + testFile.getName();
                 System.out.println("--> Redirecting output to file: " + outputFileName);
                 System.out.println();
 
